@@ -1,0 +1,49 @@
+@import 'tailwindcss';
+@import '@fontsource/geist-sans/400.css';
+@import '@fontsource/geist-sans/500.css';
+@import '@fontsource/geist-sans/600.css';
+@import '@fontsource/geist-sans/700.css';
+@import '@fontsource/geist-sans/800.css';
+
+:root {
+  --font-sans: 'Geist Sans', system-ui, sans-serif;
+
+  --color-canvas: #f7f7fa;
+  --color-surface: #ffffff;
+  --color-border: #ececf1;
+  --color-ink: #1a1a2e;
+  --color-muted: #6b7280;
+
+  --color-primary: #5b4be0;
+  --color-primary-tint: #f1effe;
+  --color-success: #1f9d57;
+  --color-success-tint: #eaf7f0;
+}
+
+/*
+ * Bridges the plain :root custom properties above into Tailwind's theme so
+ * utilities like `bg-primary`/`text-ink`/`border-border` keep working.
+ * `@theme inline` references the existing variables instead of redefining
+ * them, so :root stays the single source of truth (and can be overridden
+ * later, e.g. for dark mode, without touching this block).
+ */
+@theme inline {
+  --font-sans: var(--font-sans);
+
+  --color-canvas: var(--color-canvas);
+  --color-surface: var(--color-surface);
+  --color-border: var(--color-border);
+  --color-ink: var(--color-ink);
+  --color-muted: var(--color-muted);
+
+  --color-primary: var(--color-primary);
+  --color-primary-tint: var(--color-primary-tint);
+  --color-success: var(--color-success);
+  --color-success-tint: var(--color-success-tint);
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
