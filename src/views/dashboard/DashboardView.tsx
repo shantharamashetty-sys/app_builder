@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useProjects } from '../../hooks/useProjects'
 import ProjectCard from '../../components/ProjectCard'
 
@@ -8,6 +9,7 @@ import ProjectCard from '../../components/ProjectCard'
  */
 export default function DashboardView() {
   const { projects, isLoading, error } = useProjects()
+  const navigate = useNavigate()
 
   return (
     <div className="flex w-full flex-col gap-8">
@@ -18,6 +20,7 @@ export default function DashboardView() {
         </div>
         <button
           type="button"
+          onClick={() => navigate('/generate')}
           className="shrink-0 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white"
         >
           + Create New App
