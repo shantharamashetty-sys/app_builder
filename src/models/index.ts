@@ -1,5 +1,5 @@
 export type { Project, ProjectStatus, CreateProjectInput, UpdateProjectInput } from './Project'
-export type { User, UserRole } from './User'
+export type { User, UserRole, LoginInput, SignupInput } from './User'
 export type { Widget, WidgetType } from './Widget'
 export type { Page } from './Page'
 export type { Workflow, WorkflowStep } from './Workflow'
