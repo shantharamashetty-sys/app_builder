@@ -15,9 +15,11 @@ export default function ProjectCard({ project, onMoreClick }: ProjectCardProps) 
         className="size-14 shrink-0 rounded-xl border border-border"
         style={{ backgroundColor: project.accentColor }}
       />
-      <div className="flex flex-1 flex-col gap-1">
-        <p className="text-[15px] font-semibold text-ink">{project.name}</p>
-        <p className="text-[13px] text-muted">Edited {formatRelativeTime(project.updatedAt)}</p>
+      <div className="flex min-w-0 flex-1 flex-col gap-1">
+        <p className="truncate text-[15px] font-semibold text-ink">{project.name}</p>
+        <p className="truncate text-[13px] text-muted">
+          Edited {formatRelativeTime(project.updatedAt)}
+        </p>
       </div>
       <button
         type="button"
