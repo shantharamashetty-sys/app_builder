@@ -9,6 +9,7 @@ interface UseAuthResult {
   login: (input: LoginInput) => Promise<User>
   signup: (input: SignupInput) => Promise<User>
   requestPasswordReset: (email: string) => Promise<void>
+  logout: () => Promise<void>
 }
 
 function messageFor(err: unknown, fallback: string): string {
@@ -68,5 +69,10 @@ export function useAuth(): UseAuthResult {
     }
   }, [])
 
-  return { user, isLoading, error, login, signup, requestPasswordReset }
+  const logout = useCallback(async () => {
+    await authService.logout()
+    setUser(null)
+  }, [])
+
+  return { user, isLoading, error, login, signup, requestPasswordReset, logout }
 }

@@ -1,10 +1,14 @@
-import { Search, Bell, Menu } from 'lucide-react'
+import { useState } from 'react'
+import { Search, Bell, Menu, LogOut } from 'lucide-react'
 
 interface NavbarProps {
   onMenuClick: () => void
+  onLogout: () => void
 }
 
-export default function Navbar({ onMenuClick }: NavbarProps) {
+export default function Navbar({ onMenuClick, onLogout }: NavbarProps) {
+  const [isProfileOpen, setIsProfileOpen] = useState(false)
+
   return (
     <header className="flex h-[72px] w-full shrink-0 items-center justify-between gap-3 border-b border-border bg-surface px-4 sm:px-6">
       <div className="flex min-w-0 shrink-0 items-center gap-3">
@@ -46,8 +50,38 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
         >
           <Bell className="size-[18px] text-ink" />
         </button>
-        <div className="flex size-10 items-center justify-center rounded-xl bg-primary text-sm font-semibold text-white">
-          CS
+        <div className="relative shrink-0">
+          <button
+            type="button"
+            aria-label="Open profile menu"
+            aria-expanded={isProfileOpen}
+            onClick={() => setIsProfileOpen((value) => !value)}
+            className="flex size-10 items-center justify-center rounded-xl bg-primary text-sm font-semibold text-white"
+          >
+            CS
+          </button>
+          {isProfileOpen && (
+            <>
+              <div
+                className="fixed inset-0 z-40"
+                onClick={() => setIsProfileOpen(false)}
+                aria-hidden="true"
+              />
+              <div className="absolute right-0 top-[calc(100%+8px)] z-50 w-48 overflow-hidden rounded-xl border border-border bg-surface py-1.5 shadow-lg">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsProfileOpen(false)
+                    onLogout()
+                  }}
+                  className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-ink hover:bg-canvas"
+                >
+                  <LogOut className="size-4 shrink-0" />
+                  Log out
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </header>

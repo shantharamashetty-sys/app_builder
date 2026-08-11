@@ -37,3 +37,7 @@ export async function requestPasswordReset(email: string): Promise<void> {
   void email
   return mockDelay(undefined)
 }
+
+export async function logout(): Promise<void> {
+  return mockDelay(undefined, 150)
+}
