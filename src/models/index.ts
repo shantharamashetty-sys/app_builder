@@ -4,6 +4,19 @@ export type { Widget, WidgetType } from './Widget'
 export type { Page } from './Page'
 export type { Workflow, WorkflowStep } from './Workflow'
 export type {
+  ProjectPlatform,
+  ProjectCategory,
+  ProjectStartingPoint,
+  ProjectVisibility,
+  PlatformOption,
+  CategoryOption,
+  ThemeOption,
+  BackendDatabaseOption,
+  BackendAuthOption,
+  ProjectWizardOptions,
+  ProjectWizardDraft,
+} from './ProjectWizard'
+export type {
   BackendOption,
   RequirementTag,
   RequirementCategory,

@@ -35,7 +35,7 @@ export default function DashboardView() {
         </div>
         <button
           type="button"
-          onClick={() => navigate('/generate')}
+          onClick={() => navigate('/projects/new')}
           className="w-full shrink-0 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white sm:w-auto"
         >
           + Create New App
