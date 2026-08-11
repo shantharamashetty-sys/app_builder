@@ -75,7 +75,11 @@ export default function DashboardView() {
           {!isLoading && !error && (
             <div className="flex w-full flex-col">
               {projects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  onOpen={(target) => navigate(`/builder/${target.id}`)}
+                />
               ))}
             </div>
           )}

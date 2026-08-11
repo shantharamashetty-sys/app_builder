@@ -4,13 +4,17 @@ import { formatRelativeTime } from '../utils/formatRelativeTime'
 
 interface ProjectCardProps {
   project: Project
+  onOpen?: (project: Project) => void
   onMoreClick?: (project: Project) => void
 }
 
 /** Pure presentation: renders a Project, fires callbacks, fetches nothing. */
-export default function ProjectCard({ project, onMoreClick }: ProjectCardProps) {
+export default function ProjectCard({ project, onOpen, onMoreClick }: ProjectCardProps) {
   return (
-    <div className="flex w-full items-center gap-4 border-b border-border p-4 last:border-b-0">
+    <div
+      onClick={() => onOpen?.(project)}
+      className={`flex w-full items-center gap-4 border-b border-border p-4 last:border-b-0 ${onOpen ? 'cursor-pointer' : ''}`}
+    >
       <div
         className="size-14 shrink-0 rounded-xl border border-border"
         style={{ backgroundColor: project.accentColor }}
@@ -24,7 +28,10 @@ export default function ProjectCard({ project, onMoreClick }: ProjectCardProps) 
       <button
         type="button"
         aria-label={`More options for ${project.name}`}
-        onClick={() => onMoreClick?.(project)}
+        onClick={(event) => {
+          event.stopPropagation()
+          onMoreClick?.(project)
+        }}
         className="flex size-6 shrink-0 items-center justify-center"
       >
         <MoreHorizontal className="size-[22px] text-muted" />
