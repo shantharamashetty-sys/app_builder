@@ -1,15 +1,28 @@
 interface LogoProps {
   className?: string
-  variant?: 'card' | 'mark'
+  variant?: 'card' | 'mark' | 'icon'
 }
 
 /**
  * Brand mark: the purple "Build" wordmark, vendored from Figma. 'card' is
- * the white rounded card used in onboarding/auth (card, border, and drop
- * shadow baked into the SVG — no wrapper needed). 'mark' is the bare
- * compact lockup used in navbars, sized 56.39x30.16 in the source design.
+ * the white rounded card used in onboarding (card, border, and drop shadow
+ * baked into the SVG — no wrapper needed). 'mark' is the bare compact
+ * lockup used in navbars, sized 56.39x30.16 in the source design. 'icon' is
+ * just the glyph with no card or wordmark letters — colored via `currentColor`
+ * so it can sit directly on any background (e.g. white on the auth hero panel).
  */
 export default function Logo({ className, variant = 'card' }: LogoProps) {
+  if (variant === 'icon') {
+    return (
+      <svg viewBox="30 26 77 84" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+        <path
+          d="M61.8885 31.808L100.813 85.3829L74.9244 104.192L36 50.6171L61.8885 31.808Z"
+          fill="currentColor"
+        />
+      </svg>
+    )
+  }
+
   if (variant === 'mark') {
     return (
       <svg viewBox="0 0 56.3874 30.16" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>

@@ -16,7 +16,7 @@ export default function SocialAuthButtons() {
         <button
           key={label}
           type="button"
-          className="flex w-full items-center justify-center gap-2.5 rounded-xl border border-border bg-surface px-6 py-3"
+          className="flex h-[52px] w-full items-center justify-center gap-2.5 rounded-xl border border-border bg-surface px-4 transition-colors hover:bg-canvas focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
         >
           <Icon className="size-5 shrink-0 text-ink" />
           <span className="text-[15px] font-semibold text-ink">{label}</span>

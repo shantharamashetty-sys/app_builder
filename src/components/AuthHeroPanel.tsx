@@ -14,17 +14,20 @@ interface AuthHeroPanelProps {
 /**
  * Pure presentation: the purple marketing panel shared by login/signup/
  * forgot-password. Hidden below `lg` so the form is never squeezed next to
- * it on small screens.
+ * it on small screens. `lg:sticky` pins it to exactly 100vh regardless of
+ * how tall the form column next to it gets, instead of stretching to match
+ * a sibling that can grow taller than the viewport.
  */
 export default function AuthHeroPanel({ headline }: AuthHeroPanelProps) {
   return (
-    <div className="hidden h-full min-w-0 flex-1 flex-col justify-between bg-primary p-10 lg:flex xl:p-16">
-      <Logo className="h-[100px] w-auto shrink-0 xl:h-[120px]" />
+    <div className="hidden min-w-0 flex-1 flex-col justify-between bg-primary p-10 lg:sticky lg:top-0 lg:flex lg:h-screen xl:p-16">
+      <div className="flex shrink-0 items-center gap-3">
+        <Logo variant="icon" className="size-8 text-white" />
+        <p className="text-xl font-bold text-white">AppBuilder Studio</p>
+      </div>
 
       <div className="flex flex-col gap-8">
-        <p className="text-[40px] leading-[1.1] font-extrabold text-white xl:text-[56px]">
-          {headline}
-        </p>
+        <p className="text-[48px] leading-[1.15] font-bold text-white xl:text-[56px]">{headline}</p>
         <div className="flex flex-col gap-5">
           {FEATURES.map((feature) => (
             <div key={feature} className="flex items-center gap-3">
@@ -37,7 +40,7 @@ export default function AuthHeroPanel({ headline }: AuthHeroPanelProps) {
         </div>
       </div>
 
-      <p className="shrink-0 text-sm text-white">© 2026 AppBuilder Studio. All rights reserved.</p>
+      <p className="shrink-0 text-sm text-white/70">© 2026 AppBuilder Studio. All rights reserved.</p>
     </div>
   )
 }
