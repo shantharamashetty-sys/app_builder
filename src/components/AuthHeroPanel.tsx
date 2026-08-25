@@ -21,10 +21,7 @@ interface AuthHeroPanelProps {
 export default function AuthHeroPanel({ headline }: AuthHeroPanelProps) {
   return (
     <div className="hidden min-w-0 flex-1 flex-col justify-between bg-primary p-10 lg:sticky lg:top-0 lg:flex lg:h-screen xl:p-16">
-      <div className="flex shrink-0 items-center gap-3">
-        <Logo variant="icon" className="size-8 text-white" />
-        <p className="text-xl font-bold text-white">AppBuilder Studio</p>
-      </div>
+      <Logo className="h-20 w-auto shrink-0" />
 
       <div className="flex flex-col gap-8">
         <p className="text-[48px] leading-[1.15] font-bold text-white xl:text-[56px]">{headline}</p>

@@ -33,10 +33,7 @@ export default function LoginView() {
 
       <div className="flex min-w-0 flex-1 items-center justify-center overflow-y-auto p-6 sm:p-10">
         <form onSubmit={handleSubmit} className="flex w-full max-w-[440px] flex-col gap-6">
-          <div className="flex items-center gap-2.5 lg:hidden">
-            <Logo variant="icon" className="size-7 text-primary" />
-            <p className="text-lg font-bold text-ink">AppBuilder Studio</p>
-          </div>
+          <Logo className="h-14 w-auto lg:hidden" />
 
           <div className="flex flex-col gap-3">
             <p className="text-[32px] font-bold text-ink">Welcome back</p>
