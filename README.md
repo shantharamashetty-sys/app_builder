@@ -1,16 +1,30 @@
-# React + Vite
+# AppBuilder
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A hybrid monorepo: a React + Vite frontend (`apps/builder`) and a NestJS backend
+(`apps/api`), plus shared TypeScript packages, database infrastructure, and a home for
+AI-generated app output. See `CLAUDE.md` for the full architecture, module contract,
+and standing conventions.
 
-Currently, two official plugins are available:
+```
+apps/builder/   React 19 + Vite + TypeScript frontend
+apps/api/       NestJS backend
+packages/       shared TypeScript types and the App Schema
+infrastructure/ database schema (not yet wired to a live connection)
+generated/      pipeline output — projects, previews, exports
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Commands
 
-## React Compiler
+```
+npm install          # installs all workspaces from the repo root
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+npm run dev:builder   # start the frontend dev server
+npm run build:builder # type-check + build the frontend
+npm run lint:builder  # lint the frontend
 
-## Expanding the Oxlint configuration
+npm run dev:api       # start the backend in watch mode
+npm run build:api     # build the backend
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+`docker-compose up postgres` starts a local Postgres instance for future use — nothing
+in `apps/api` connects to it yet (see `CLAUDE.md`'s "apps/api backend contract").
