@@ -29,7 +29,7 @@ export default function ProjectWizardView() {
     }
     try {
       await wizard.submit()
-      navigate('/')
+      navigate('/dashboard')
     } catch {
       // error state is already surfaced by useProjectWizard
     }

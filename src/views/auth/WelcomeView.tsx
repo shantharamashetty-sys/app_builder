@@ -62,12 +62,12 @@ export default function WelcomeView() {
 
         <div className="flex w-full max-w-[320px] flex-col items-center gap-5">
           <Link
-            to="/"
+            to="/dashboard"
             className="w-full rounded-xl bg-primary px-8 py-3 text-center text-base font-semibold text-white"
           >
             Get Started
           </Link>
-          <Link to="/" className="text-[15px] font-semibold text-muted">
+          <Link to="/dashboard" className="text-[15px] font-semibold text-muted">
             Skip for now
           </Link>
         </div>

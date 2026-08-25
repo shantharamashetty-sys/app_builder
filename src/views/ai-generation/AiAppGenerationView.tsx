@@ -73,7 +73,7 @@ export default function AiAppGenerationView() {
       )}
 
       {generation.step === 'confirm' && generation.summary && (
-        <ConfirmStep summary={generation.summary} onDone={() => navigate('/')} />
+        <ConfirmStep summary={generation.summary} onDone={() => navigate('/dashboard')} />
       )}
     </div>
   )

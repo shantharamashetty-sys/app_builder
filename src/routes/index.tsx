@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 import AppLayout from '../components/layout/AppLayout'
 import DashboardView from '../views/dashboard/DashboardView'
 import WelcomeView from '../views/auth/WelcomeView'
@@ -17,13 +17,17 @@ import BuilderView from '../views/builder/BuilderView'
  * 02), the Project Creation Wizard (Module 03), the AI App Generation flow
  * (Module 04), and the Visual App Builder (Module 05) render full-screen
  * outside AppLayout — they own their own minimal chrome with no sidebar.
+ *
+ * The app starts at the login screen: the root index route redirects to
+ * `/login` rather than rendering the dashboard directly.
  */
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <AppLayout />,
     children: [
-      { index: true, element: <DashboardView /> },
+      { index: true, element: <Navigate to="/login" replace /> },
+      { path: 'dashboard', element: <DashboardView /> },
       // { path: 'apps', element: <MyAppsView /> },              Module 01 (My Apps list)
       // ...continue for the remaining modules as they're built
     ],

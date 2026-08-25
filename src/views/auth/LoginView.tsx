@@ -21,7 +21,7 @@ export default function LoginView() {
     event.preventDefault()
     try {
       await login({ email, password })
-      navigate('/')
+      navigate('/dashboard')
     } catch {
       // error state is already surfaced by useAuth
     }
