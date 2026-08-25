@@ -37,7 +37,7 @@ export default function LoginView() {
 
           <div className="flex flex-col gap-3">
             <p className="text-[32px] font-bold text-ink">Welcome back</p>
-            <p className="text-base text-muted">Enter your credentials to access AppBuilder Studio</p>
+            <p className="text-base text-muted">Enter your credentials to access your studio</p>
           </div>
 
           <div className="flex w-full flex-col gap-6">
@@ -91,14 +91,8 @@ export default function LoginView() {
               disabled={isLoading}
               className="h-[52px] w-full rounded-xl bg-primary px-4 text-base font-bold text-white transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:opacity-60"
             >
-              {isLoading ? 'Logging in...' : 'Log in to Studio'}
+              {isLoading ? 'Logging in...' : 'Log In'}
             </button>
-
-            <div className="flex w-full items-center gap-3">
-              <div className="h-px flex-1 bg-border" />
-              <span className="text-xs font-semibold text-muted">OR</span>
-              <div className="h-px flex-1 bg-border" />
-            </div>
 
             <SocialAuthButtons />
           </div>

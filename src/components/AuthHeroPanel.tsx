@@ -24,7 +24,7 @@ export default function AuthHeroPanel({ headline }: AuthHeroPanelProps) {
       <Logo className="h-20 w-auto shrink-0" />
 
       <div className="flex flex-col gap-8">
-        <p className="text-[48px] leading-[1.15] font-bold text-white xl:text-[56px]">{headline}</p>
+        <p className="text-[48px] leading-[1.15] font-extrabold text-white xl:text-[56px]">{headline}</p>
         <div className="flex flex-col gap-5">
           {FEATURES.map((feature) => (
             <div key={feature} className="flex items-center gap-3">
